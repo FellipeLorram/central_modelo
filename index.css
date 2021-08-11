@@ -819,4 +819,8 @@ body {
         border-radius: 15px;
         padding: var(--second-padding);
     }
+
+    .semana {
+        margin-bottom: 100px;
+    }
 }
