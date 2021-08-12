@@ -124,6 +124,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: top 0.3s;
 }
 
 .top_bar_toggle, .top_bar_icon {
@@ -273,14 +274,25 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    padding: var(--main-padding);
+}
+
+.card_lembretes_header .material-icons {
+    display: none;
 }
 
 .card_lembretes_header-icon {
     display: flex;
     align-items: center;
-    font-size: 1.1em;
-    padding: 0 var(--second-padding) 5px 0;
+    justify-content: center;
+    font-size: 30px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    padding: var(--second-padding);
+    color: var(--white-color);
+    box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+    margin-left: 10px;
+    display: none;
 }
 
 .card_lembretes_header-text {
@@ -426,7 +438,6 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1em;
-    font-weight: bold;
     padding: var(--second-padding);
     padding-top: 0;
     width: 100%;
@@ -752,12 +763,12 @@ body {
 
 .navigation_mobile {
     display: none;
+    transition: all 0.3s;
 }
 
-@media screen and (max-width:1080px) {
-    .card_box_days, .card_box_controle {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+@media (max-width:800px) {
+    .navbar .bx-menu {
+        display: block;
     }
 }
 
@@ -767,31 +778,30 @@ body {
         grid-template-rows: repeat(3, 1fr);
     }
     .card_horas_info {
-        border: 0;
-        box-shadow: 0 2px 5px #46d2d2;
+        box-shadow: 0 3px 5px #46d2d2;
     }
     .card_pacientes_info {
-        border: 0;
-        box-shadow: 0 2px 5px #cd32a6;
+        box-shadow: 0 3px 5px #cd32a6;
     }
     .card_financeiro_info {
-        border: 0;
-        box-shadow: 0 2px 5px #99d75b;
+        box-shadow: 0 3px 5px #99d75b;
     }
     .card_lembretes {
-        border: 0;
-        box-shadow: 0 2px 5px var(--yellow-color);
+        box-shadow: 0 3px 5px var(--yellow-color);
     }
     .card_day {
-        box-shadow: 0 2px 5px var(--second-color);
+        box-shadow: 0 3px 5px var(--second-color);
     }
 }
 
 @media screen and (max-width:768px) {
+    .add_new_paciente_content, .add_new_note_content {
+        display: none;
+    }
     .main {
         width: 100%;
         left: 0;
-        max-width: 100vw;
+        min-width: 100vw;
     }
     .main .top_bar_toggle, .main .top_bar_icon {
         display: none;
@@ -819,53 +829,49 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: var(--large-padding);
+        padding: var(--main-padding);
     }
     .icon_mobile_container a {
         text-decoration: none;
         color: var(--third-color);
     }
     .icon_mobile_container a .link_icon_mobile {
-        font-size: 2.8em;
-    }
-    .add_new_paciente_content, .add_new_note_content {
-        align-items: flex-start;
-        top: 10%;
-        left: -19%;
-        max-width: 270.075px;
-        max-height: 61.2px;
-        transform: rotate(90deg);
-        transition: top 0.4s;
-        border-radius: 15px;
-        padding: var(--second-padding);
+        font-size: 2em;
     }
     .main_top_bar {
-        height: 90px;
+        height: 70px;
+        box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+        position: fixed;
+        z-index: 10000;
     }
     .top_bar_reference {
-        font-size: 3.5em;
-        padding-top: 30px;
+        font-size: 30px;
     }
     .semana_container {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: auto;
     }
     .semana {
-        margin-bottom: 100px;
+        margin-bottom: 55px;
     }
     .card_box_days, .card_box_controle {
         overflow: auto;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: auto;
-        margin: 30px 10px;
+        margin: 30px;
+        margin-right: 10px;
+        margin-left: 15px;
     }
-    .card_box_days::-webkit-scrollbar, .card_box_controle::-webkit-scrollbar{
+    .card_box_days {
+        margin-top: 100px;
+    }
+    .card_box_days::-webkit-scrollbar, .card_box_controle::-webkit-scrollbar {
         display: none;
     }
     .card_day, .card_pacientes_info, .card_financeiro_info, .card_horas_info, .card_lembretes {
         padding: var(--large-padding) var(--main-padding);
-        min-width: 500px;
-        min-height: 400px;
+        min-width: 300px;
+        min-height: 300px;
         margin-bottom: 10px;
     }
     .card_pacientes_info, .card_financeiro_info, .card_lembretes {
@@ -874,38 +880,41 @@ body {
         flex-direction: column;
     }
     .card_header {
-        font-size: 3.5em;
+        font-size: 30px;
     }
     .card_content--paciente {
         font-size: 2em;
         padding: var(--main-padding);
     }
     .card_lembretes_header .card_lembretes_header-icon, .card_lembretes_header-text {
-        font-size: 3em;
-        margin-bottom: 20px;
+        font-size: 30px;
+        margin-bottom: 10px;
     }
     .card_content--paciente, .card_pacientes_info-infos, .lembrete_container {
         padding: var(--main-padding);
-        font-size: 2em;
-        margin: 20px;
+        font-size: 21px;
     }
     .card_horas_info {
-        font-size: 2.3em
+        font-size: 21px;
     }
     .dia_semana_header {
-        font-size: 2.3em;
+        font-size: 30px;
     }
     .info_day, .dia_semana_card_content-info {
-        font-size: 1.8em;
+        font-size: 21px;
     }
-    .semana_header{
-        font-size: 4em;
+    .semana_header {
+        font-size: 40px;
     }
-    .semana_header .material-icons{
-        font-size: 0.8em;
+    .semana_mes_container {
+        margin: 30px 15px;
     }
-    .semana_mes_container{
-        margin: 30px 10px;
+    .dia_semana {
+        border: 0;
+        box-shadow: 0 2px 5px var(--second-color);
     }
-
+    .card_lembretes_header .material-icons {
+ 
+        display: block;
+    }
 }
