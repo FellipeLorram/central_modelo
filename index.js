@@ -35,3 +35,27 @@ open_with_left_side.addEventListener('click', e => {
 
 });
 
+let prevPageYOfsset = window.pageYOffset;
+window.onscroll = () => {
+    let currentPageYOfsset = window.pageYOffset;
+
+    if (prevPageYOfsset > currentPageYOfsset) {
+        document.querySelector(".main_top_bar").style.top = "0";
+        document.querySelector(".navigation_mobile").style.bottom = "0";
+    }
+    else {
+        document.querySelector(".main_top_bar").style.top = "-100px";
+        document.querySelector(".navigation_mobile").style.bottom = "-100px";
+    }
+    prevPageYOfsset = currentPageYOfsset;
+
+    if (document.querySelector(".main_top_bar").style.top == "-100px") {
+        setTimeout(() => {
+            document.querySelector(".main_top_bar").style.top = "0";
+            document.querySelector(".navigation_mobile").style.bottom = "0";
+        }, 1563);
+
+    }
+}
+
+
