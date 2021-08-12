@@ -274,7 +274,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--main-padding);
+    margin-bottom: 10px;
 }
 
 .card_lembretes_header .material-icons {
@@ -869,9 +869,9 @@ body {
         display: none;
     }
     .card_day, .card_pacientes_info, .card_financeiro_info, .card_horas_info, .card_lembretes {
-        padding: var(--large-padding) var(--main-padding);
+        padding: var(--main-padding) var(--second-padding);
         min-width: 300px;
-        min-height: 300px;
+        min-height: 214px;
         margin-bottom: 10px;
     }
     .card_pacientes_info, .card_financeiro_info, .card_lembretes {
@@ -880,31 +880,34 @@ body {
         flex-direction: column;
     }
     .card_header {
-        font-size: 30px;
+        font-size: 24px;
     }
     .card_content--paciente {
         font-size: 2em;
         padding: var(--main-padding);
     }
     .card_lembretes_header .card_lembretes_header-icon, .card_lembretes_header-text {
-        font-size: 30px;
+        font-size: 24px;
         margin-bottom: 10px;
     }
+    .card_lembretes_header {
+        margin-bottom: 0;
+    }
     .card_content--paciente, .card_pacientes_info-infos, .lembrete_container {
-        padding: var(--main-padding);
-        font-size: 21px;
+        padding: var(--second-padding);
+        font-size: 17px;
     }
     .card_horas_info {
         font-size: 21px;
     }
     .dia_semana_header {
-        font-size: 30px;
+        font-size: 24px;
     }
     .info_day, .dia_semana_card_content-info {
-        font-size: 21px;
+        font-size: 17px;
     }
     .semana_header {
-        font-size: 40px;
+        font-size: 24px;
     }
     .semana_mes_container {
         margin: 30px 15px;
@@ -914,7 +917,6 @@ body {
         box-shadow: 0 2px 5px var(--second-color);
     }
     .card_lembretes_header .material-icons {
- 
         display: block;
     }
 }
