@@ -164,6 +164,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     font-family: var(--main-font);
+    padding: 0 var(--second-padding);
 }
 
 .card_day {
