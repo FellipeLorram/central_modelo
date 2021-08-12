@@ -822,21 +822,21 @@ body {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
-        background-image: linear-gradient( rgba(0, 0, 0, 0), var(--main-color));
+        background-image: linear-gradient( rgba(255, 255, 255, 0), var(--main-color));
     }
     .icon_mobile_container {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: var(--main-padding);
+        padding: var(--second-padding);
     }
     .icon_mobile_container a {
         text-decoration: none;
         color: var(--third-color);
     }
     .icon_mobile_container a .link_icon_mobile {
-        font-size: 2em;
+        font-size: 21px;
     }
     .main_top_bar {
         height: 70px;
