@@ -39,6 +39,11 @@ body {
     user-select: none;
 }
 
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
 .espacamento {
     display: none;
 }
@@ -847,6 +852,344 @@ body {
     border-bottom-left-radius: 30px;
 }
 
+/* NOVO PACIENTE WINDOWN*/
+
+.novo_paciente_windown_container, .more_filds_container {
+    font-family: var(--main-font);
+    z-index: 20000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.6);
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    animation-name: nice_appear;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.confirm-close {
+    animation-name: confirmClose;
+}
+
+.novo_paciente_windown, .more_filds {
+    width: 100%;
+    max-width: 1000px;
+    max-height: 100vh;
+    padding: 20px 0;
+    opacity: 0;
+    transform: scale(0);
+    animation-name: confirm-window-open;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+.more_filds {
+    max-width: 500px;
+}
+
+.novo_paciente_windown_header, .more_filds--header {
+    background: var(--white-color);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: var(--font-size1);
+    background: var(--fourth-color);
+    color: var(--white-color);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.novo_paciente_windown_header--btn_close, .more_filds_header--btn_close {
+    transition: color 0.2s, transform 0.2s;
+}
+
+.novo_paciente_windown_header--btn_close:hover, .more_filds_header--btn_close:hover {
+    color: var(--red-color);
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+.novo_paciente_windown_body, .more_filds--body {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white-color);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: inset 1px 1px 5px var(--main-color), inset -1px -1px 5px var(--main-color);
+}
+
+.novo_paciente_windown_body form {
+    width: 100%;
+}
+
+.novo_paciente_windown_body select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+}
+
+.input_container input, .input_container select, .text_area_field {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid var(--main-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border-radius: 5px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin-top: 5px;
+}
+
+.input_container {
+    margin-bottom: 50px;
+}
+
+.novo_paciente_windown_body label {
+    font-size: 17px;
+}
+
+.input_container input:focus, .text_area_field:focus {
+    border: 0.5px solid var(--fourth-color);
+}
+
+.novo_paciente_windown_body input:focus-visible, .text_area_field:focus-visible {
+    border: 1px solid var(--fourth-color);
+    box-shadow: 1px 1px 5px var(--mainShaddow-color);
+}
+
+.novo_paciente_windown_body .container__3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.novo_paciente_windown_body .container__2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.novo_paciente_windown_body .container__4-first_small {
+    display: grid;
+    grid-template-columns: 0.5fr repeat(3, 1fr);
+    gap: 25px;
+}
+
+.novo_paciente_windown_form_footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.novo_paciente_windown_form_footer button, .more_filds_body_footer button {
+    padding: 15px 20px;
+    font-size: 17px;
+    font-family: var(--main-font);
+    background: var(--third-color);
+    color: var(--white-color);
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+.novo_paciente_windown_form_footer button:hover, .more_filds_body_footer button:hover {
+    box-shadow: 0 3px 5px var(--main-color);
+    background: var(--fourth-color);
+}
+
+/* select__container mais campos */
+
+/* select__container mais campos */
+
+/* select__container mais campos */
+
+.more_filds--body {
+    flex-direction: column;
+    background: #f5f5f5;
+    padding-top: 5px;
+}
+
+.select__container {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 15px 5px;
+    gap: 10px;
+}
+
+.more_fields--select-content, .select_all, .message_no_fields_available {
+    padding: var(--large-padding) 10px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.select_all, .message_no_fields_available {
+    cursor: initial;
+}
+
+.select_all {
+    padding: var(--main-padding) 10px;
+    text-align: center;
+}
+
+.more_fields--select-content.selected, .select_all.selected_all {
+    color: var(--white-color);
+    background: var(--third-color);
+    padding: var(--main-padding) 10px;
+}
+
+.more_filds_body_footer {
+    margin: 30px 0 0 0;
+}
+
+.more_filds_body_footer button {
+    padding: 15px 20px;
+    font-size: 17px;
+    font-family: var(--main-font);
+    background: var(--third-color);
+    color: var(--white-color);
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    box-shadow: 0 3px 5px rgb(0 0 0 / 50%);
+    border-radius: 15px
+}
+
+/* persnalizar campo */
+
+/* persnalizar campo */
+
+/* persnalizar campo */
+
+.select_custom_input_size {
+    width: 100%;
+}
+
+.select_custom_input_size--header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.select_custom_input_size--body {
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+    gap: 5px;
+}
+
+.large_field, .normal_field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white-color);
+    border: 0.5px solid var(--main-color);
+    width: 100%;
+    padding: 30px;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.normal_field {
+    padding: 10px;
+}
+
+.large_field.selected, .normal_field.selected {
+    background: var(--fourth-color);
+    color: var(--white-color);
+}
+
+#customField.required_field {
+    border: 2px solid var(--red-color);
+}
+
+/* add_new_paciente_content_mobile */
+
+/* add_new_paciente_content_mobile */
+
+/* add_new_paciente_content_mobile */
+
+.add_new_paciente_content_mobile, .add_new_lembrete_content_mobile {
+    padding: 10px 20px 10px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--fourth-color);
+    color: var(--white-color);
+    position: fixed;
+    bottom: 20%;
+    border-radius: 30px;
+    right: -172px;
+    min-width: 204.475px;
+    max-width: 204.475px;
+    font-family: var(--main-font);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.add_new_lembrete_content_mobile {
+    background: var(--darkerYellow-color);
+}
+
+.add_new_paciente_content_mobile.active, .add_new_lembrete_content_mobile.active {
+    right: -26px;
+}
+
+.add_new_paciente_content_mobile.desactive, .add_new_lembrete_content_mobile.desactive {
+    right: -225px;
+}
+
+.add_new_paciente_mobile_icon {
+    transition: all 0.3s;
+}
+
+.add_new_paciente_mobile_text {
+    margin: 0 10px 0 5px;
+}
+.add_new_lembrete_mobile_text {
+    margin: 0 10px 0 5px;
+    font-size: 15px;
+}
+
+.icon_rotate {
+    transform: rotate(45deg) scale(1.2);
+}
+
 /* RESPONSIVE */
 
 .navigation_mobile {
@@ -858,9 +1201,32 @@ body {
     .navbar .bx-menu {
         display: block;
     }
+    *::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 @media screen and (max-width:868px) {
+    /*NOVO PACIENTE WINDOWN*/
+    .novo_paciente_windown_header {
+        padding: 20px 10px;
+    }
+    .novo_paciente_windown_body .container__3 {
+        grid-template-columns: auto;
+        gap: 0;
+    }
+    .novo_paciente_windown_body .container__2 {
+        grid-template-columns: auto;
+        gap: 0;
+    }
+    .novo_paciente_windown_body .container__4-first_small {
+        grid-template-columns: auto;
+        gap: 0;
+    }
+    .input_container {
+        margin-bottom: 30px;
+    }
+    /*NOVO PACIENTE WINDOWN*/
     .semana_container {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -879,6 +1245,19 @@ body {
     }
     .card_day {
         box-shadow: 0 3px 5px var(--second-color);
+    }
+    .novo_paciente_windown_form_footer {
+        justify-content: center;
+        align-items: center;
+    }
+    .novo_paciente_windown_form_footer button, .more_filds_body_footer button {
+        margin: 0;
+    }
+    #add_campo {
+        font-size: 14px;
+        padding: 12px 17px;
+        min-height: 47px;
+        margin-right: 20px;
     }
 }
 
@@ -900,6 +1279,9 @@ body {
     }
     .main_top_bar {
         justify-content: center;
+    }
+    .add_new_paciente_content_mobile, .add_new_lembrete_content_mobile {
+        opacity: 1;
     }
     .navigation_mobile {
         position: fixed;
@@ -933,7 +1315,7 @@ body {
         height: 0;
         width: 0;
         position: absolute;
-        background: radial-gradient(circle at 50%, #cc98e6, #fff 60%, #fff 100%, #cc98e6 75%);
+        background: radial-gradient(circle at 50%, #cc98e6, #fff 60%, #eee 100%, #cc98e6 75%);
         border-radius: 50%;
         z-index: -1;
         transition: height 0.3s, width 0.3s;
@@ -976,14 +1358,12 @@ body {
     .card_box_days {
         margin-top: 100px;
     }
-    .card_box_days::-webkit-scrollbar, .card_box_controle::-webkit-scrollbar {
-        display: none;
-    }
     .card_day, .card_pacientes_info, .card_financeiro_info, .card_horas_info, .card_lembretes {
         padding: var(--main-padding) var(--second-padding);
         min-width: 300px;
         min-height: 214px;
         margin-bottom: 10px;
+        padding: 10px;
     }
     .card_pacientes_info, .card_financeiro_info, .card_lembretes {
         display: flex;
@@ -1100,6 +1480,73 @@ body {
         height: 70px;
         display: block;
     }
+    /* ================================== Meus Horarios ==========================*/
+    /* ================================== Meus Horarios ==========================*/
+    /* ================================== Meus Horarios ==========================*/
+    .minha_agenda_container {
+        margin: 100px 5px 100px 5px;
+        overflow-x: auto;
+        border: 0;
+        border-radius: 0;
+        padding: 5px 15px;
+    }
+    .horas_container {
+        display: none;
+    }
+    .dias_container {
+        gap: 15px;
+        background: none;
+    }
+    .paciente_horario {
+        background: var(--white-color);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 15px 0 0;
+    }
+    .dia {
+        min-width: 290px;
+        border-radius: 30px;
+        box-shadow: 0 2px 5px var(--second-color);
+    }
+    .dia .dia_header {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 15px 0 0;
+    }
+    .dia .dia_footer {
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+    .paciente_horario::before {
+        content: attr(data-hora);
+        position: relative;
+        margin-right: 25%;
+        padding: 15px;
+        min-width: 45px;
+        background: var(--fourth-color);
+        color: var(--white-color);
+    }
+    .dia .dia_header::before {
+        content: 'schedule';
+        position: relative;
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        margin-right: 25%;
+        padding: 10px 10px 10px 15px;
+    }
 }
 
 @keyframes rotate_icon {
@@ -1109,4 +1556,59 @@ body {
     to {
         transform: rotate(360deg);
     }
+}
+
+@keyframes nice_appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes confirmClose {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes confirm-window-open {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes niceChange {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+@keyframes niceChangeContinuos {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.nice_change {
+    animation: niceChange 0.3s;
+}
+
+.nice_change_continuos {
+    animation: niceChangeContinuos 0.3s;
 }
