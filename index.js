@@ -35,6 +35,20 @@ open_with_left_side.addEventListener('click', e => {
 
 });
 
+// Novo Lembrete
+const addNewPacienteMobile = document.querySelector('.add_new_lembrete_content_mobile');
+
+addNewPacienteMobile.addEventListener('click', e => {
+    if (!e.target.classList.contains('add_new_paciente_mobile_icon')) console.log(1);
+});
+
+addNewPacienteMobile.querySelector('.add_new_paciente_mobile_icon').addEventListener('click', e => {
+    e.target.classList.toggle('icon_rotate');
+    addNewPacienteMobile.classList.toggle('active');
+});
+
+
+
 let prevPageYOfsset = window.pageYOffset;
 window.onscroll = () => {
     let currentPageYOfsset = window.pageYOffset;
@@ -57,5 +71,3 @@ window.onscroll = () => {
 
     }
 }
-
-
